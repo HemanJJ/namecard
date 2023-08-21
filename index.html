@@ -1,7 +1,228 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Line Flex Message Test</title>
+  <style>
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    /* Styling for the Flex Message container */
+    #flex-message {
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    /* Styling for the text inside the Flex Message */
+    .flex-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* Styling for the hero image inside the Flex Message */
+    .flex-hero-image {
+      width: 30%
+      height: auto;
+    } 
+    /* Styling for the buttons inside the Flex Message */
+    .flex-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <button id="convertButton">Convert Flex Message</button>
+  <div id="flex-message"></div>
+  <script>
+    // Add a click event listener to the button
+    document.getElementById('convertButton').addEventListener('click', () => {
+      // The Line Flex Message JSON you provided
+      const flexMessageJson = {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://lh3.googleusercontent.com/u/0/drive-viewer/AITFw-wgcy2o_vk2IKWhOAyFjLEsX2Ejd59btE4CnJy6NToHsCNA8C7OokDndx8OLfbEn0ZPyyxs_6Z7RpVUZYlEsR65LLRG_g=w2754-h376",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "uri": "http://www.i-pos.com.tw/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Joy&JJ Cafe",
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "margin": "md",
+              "contents": [
+                {
+                  "type": "icon",
+                  "size": "sm",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                },
+                {
+                  "type": "icon",
+                  "size": "sm",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                },
+                {
+                  "type": "icon",
+                  "size": "sm",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                },
+                {
+                  "type": "icon",
+                  "size": "sm",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                },
+                {
+                  "type": "icon",
+                  "size": "sm",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                },
+                {
+                  "type": "text",
+                  "text": "4.0",
+                  "size": "sm",
+                  "color": "#999999",
+                  "margin": "md",
+                  "flex": 0
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Place",
+                      "color": "#aaaaaa",
+                      "size": "sm",
+                      "flex": 1
+                    },
+                    {
+                      "type": "text",
+                      "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                      "wrap": true,
+                      "color": "#666666",
+                      "size": "sm",
+                      "flex": 5
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Time",
+                      "color": "#aaaaaa",
+                      "size": "sm",
+                      "flex": 1
+                    },
+                    {
+                      "type": "text",
+                      "text": "10:00 - 23:00",
+                      "wrap": true,
+                      "color": "#666666",
+                      "size": "sm",
+                      "flex": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "uri",
+                "label": "CALL",
+                "uri": "https://www.i-pos.com.tw"
+              }
+            },
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "uri",
+                "label": "WEBSITE",
+                "uri": "https://www.i-pos.com.tw"
+              }
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [],
+              "margin": "sm"
+            }
+          ],
+          "flex": 0
+        }
+      };
+
+      // Convert the JSON data to HTML
+      const heroImage = flexMessageJson.hero.url;
+      const text = flexMessageJson.body.contents[0].text;
+      //const rating = flexMessageJson.body.contents[1].contents.reduce((acc, icon) => acc + (icon.url.includes('gold') ? '⭐' : '☆'), '');
+      const rating = flexMessageJson.body.contents[1]?.contents.reduce((acc, icon) => acc + (icon.url && icon.url.includes('gold') ? '⭐' : '☆'), '') || '';
+      const place = flexMessageJson.body.contents[2].contents[0].contents[1].text;
+      const time = flexMessageJson.body.contents[2].contents[1].contents[1].text;
+
+      const html = `
+        <div id="flex-message">
+          <img class="flex-hero-image" src="${heroImage}" alt="Hero Image">
+          <div class="flex-text" style="font-weight: bold; font-size: 24px; margin-bottom: 10px;">${text}</div>
+          <div class="flex-rating" style="color: #999999; margin-bottom: 10px;">${rating}</div>
+          <div class="flex-place" style="color: #666666; margin-bottom: 10px;"><b>Place:</b> ${place}</div>
+          <div class="flex-time" style="color: #666666;"><b>Time:</b> ${time}</div>
+          <div class="flex-footer" style="margin-top: 20px;">
+            <a href="https://www.i-pos.com.tw" class="flex-button" style="background-color: #007bff; color: #ffffff;">CALL</a>
+            <a href="https://www.i-pos.com.tw" class="flex-button" style="background-color: #007bff; color: #ffffff;">WEBSITE</a>
+          </div>
+        </div>
+      `;
+
+      // Insert the HTML into the "flex-message" container
+      document.getElementById('flex-message').innerHTML = html;
+    });
+  </script>
 </body>
 </html>
