@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>点餐POS系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* CSS样式 */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    @media screen and (min-width: 600px) {
+      .container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .subtotal {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>点餐POS系统</h1>
+
+  <div class="container">
+    <div>
+      <label for="tableNumber">桌号：</label>
+      <input type="text" id="tableNumber">
+    </div>
+    <div>
+      <label for="waiter">服务员：</label>
+      <input type="text" id="waiter">
+    </div>
+  </div>
+
+  <div class="container">
+    <div>
+      <label for="dish1">菜色1：</label>
+      <select id="dish1" onchange="calculateSubtotal()">
+        <option value="0">请选择</option>
+        <option value="10">菜色1-10元</option>
+        <option value="20">菜色1-20元</option>
+        <!-- 其他菜色1选项 -->
+      </select>
+    </div>
+    <div>
+      <label for="quantity1">数量：</label>
+      <input type="number" id="quantity1" min="0" value="0" onchange="calculateSubtotal()">
+    </div>
+    <div>
+      <label for="subtotal1">小计：</label>
+      <span id="subtotal1">0</span>
+    </div>
+  </div>
+
+  <!-- 其他菜色2-5的选择、数量和小计部分 -->
+
+  <div>
+    <label for="total">总计：</label>
+    <span id="total">0</span>
+  </div>
+
+  <script>
+    // 计算小计和总计
+    function calculateSubtotal() {
+      // 获取菜色
+          // 计算小计和总计
+    function calculateSubtotal() {
+      // 获取菜色1的选择和数量
+      const dish1 = document.getElementById('dish1').value;
+      const quantity1 = document.getElementById('quantity1').value;
+
+      // 计算菜色1的小计
+      const subtotal1 = dish1 * quantity1;
+
+      // 更新菜色1的小计显示
+      document.getElementById('subtotal1').textContent = subtotal1;
+
+      // 计算总计
+      const total = subtotal1;
+
+      // 更新总计显示
+      document.getElementById('total').textContent = total;
+    }
+  </script>
+</body>
+</html>
