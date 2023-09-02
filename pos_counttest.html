@@ -66,8 +66,8 @@ h1 {
       <label for="dish1">鞋樣：</label>
       <select id="dish1" onchange="calculateSubtotal()">
         <option value="0">请选择</option>
-        <option value="10">菜色1-10元</option>
-        <option value="20">菜色1-20元</option>
+        <option value="12000">鞋色1-12000</option>
+        <option value="1500">皂色1-1500元</option>
         <option value="20">菜色2-20元</option>
         <option value="30">菜色2-30元</option>
         <option value="30">菜色3-30元</option>
@@ -162,6 +162,10 @@ h1 {
                 resultElement.innerHTML += organization + "：" + organizationShares[i] + "<br>";
             }
         }
+         document.getElementById('quantity1').addEventListener('change', function() {
+      document.getElementById('salesVariable').value = document.getElementById('quantity1').value;
+      calculateProfit();
+    });
     </script>
 </head>
 <body>
